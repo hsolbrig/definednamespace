@@ -6,6 +6,7 @@ from typing import Union
 from rdflib import RDF, Namespace, SKOS, RDFS
 
 from generator.generate_namespace import generate_namespace
+from tests import test_dir
 
 
 class GenerateNamespaceTestCase(unittest.TestCase):
@@ -25,7 +26,7 @@ class GenerateNamespaceTestCase(unittest.TestCase):
         exec(spec, module.__dict__)
 
         # Compare the output to what we're expecting
-        expected_fname = f"data/{namespace.upper()}.py"
+        expected_fname = os.path.join(test_dir, namespace.upper()+ ".py")
         expected_exists = os.path.exists(expected_fname)
         if not expected_exists:
             with open(expected_fname, 'w') as f:
@@ -41,12 +42,11 @@ class GenerateNamespaceTestCase(unittest.TestCase):
 
     def test_skos(self):
         """ Test generating SKOS from a file """
-        self.do_test('skos', SKOS, 'data/skos.rdf', 'xml')
+        self.do_test('skos', SKOS, os.path.join(test_dir, 'skos.rdf'), 'xml')
 
     def test_non_identifiers(self):
         """ Test generation for non-python identifiers """
-        self.do_test('rdfmod', RDFS, 'data/rdf-schema_mod.ttl')
-
+        self.do_test('rdfmod', RDFS, os.path.join(test_dir, 'rdf-schema_mod.ttl'))
 
 
 if __name__ == '__main__':
