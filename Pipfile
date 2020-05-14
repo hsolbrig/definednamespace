@@ -4,9 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pbr = "*"
 
 [packages]
-rdflib = "*"
+rdflib = "~=5.0"
 
-[requires]
-python_version = "3.8"
