@@ -35,7 +35,7 @@ generate: List[GenEntry] = [
     GenEntry('PROV', 'http://www.w3.org/ns/prov', 'manual'),
     GenEntry('RDF', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'),
     GenEntry('RDFS', 'http://www.w3.org/2000/01/rdf-schema#'),
-    GenEntry('SDO', 'https://schema.org/docs/jsonldcontext.json', 'json-ld'),
+    GenEntry('SDO', 'http://schema.org/version/latest/schema.ttl'),
     GenEntry('SH', 'https://www.w3.org/ns/shacl.ttl'),
     GenEntry('SKOS', 'https://www.w3.org/2009/08/skos-reference/skos.rdf', 'xml'),
     GenEntry('SOSA', 'http://www.w3.org/ns/sosa/'),
@@ -50,14 +50,22 @@ generate: List[GenEntry] = [
 base = os.path.relpath(os.path.abspath(os.path.join(cwd, '..', 'definednamespace')), os.getcwd())
 
 
-def gen():
-    for entry in generate:
+def gen(prefix: Optional[str] = None) -> int:
+
+    def generate_entry(entry: GenEntry) -> bool:
         if not entry.url:
-            continue
+            return False
         target = os.path.join(base, entry.pfx.upper() + ".py")
         with open(target, 'w') as output_file:
             output_file.write(generate_namespace(entry.pfx, entry.uri if entry.uri else prefixes[entry.pfx], entry.url, entry.fmt ))
         print(f"{target} written")
+        return True
+
+    ngenerated = 0
+    for entry in generate:
+        if (not prefix or prefix == entry.pfx) and generate_entry(entry):
+            ngenerated += 1
+    return ngenerated
 
 
-gen()
+print(f"{gen('SDO')} files written")
