@@ -8,4 +8,5 @@ pbr = "*"
 
 [packages]
 rdflib = "~=5.0"
-
+requests = "*"
+rdflib-jsonld = "*"

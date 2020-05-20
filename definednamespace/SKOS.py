@@ -4,14 +4,21 @@ from definednamespace import DefinedNamespace
 
 class SKOS(DefinedNamespace):
     """
-    dct:contributor "Dave Beckett",
-        "Nikki Rogers",
-        "Participants in W3C's Semantic Web Deployment Working Group." ;
-    dct:creator "Alistair Miles",
-        "Sean Bechhofer" ;
-    dct:description "An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies."@en ;
-    dct:title "SKOS Vocabulary"@en ;
-    rdfs:seeAlso <http://www.w3.org/TR/skos-reference/> .
+    SKOS Vocabulary
+    
+    An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri,
+    classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled
+    vocabulary, and also concept schemes embedded in glossaries and terminologies.
+    
+    Generated from: https://www.w3.org/2009/08/skos-reference/skos.rdf
+    Date: 2020-05-20 08:25:42.875097
+
+    <http://www.w3.org/2004/02/skos/core> dct:contributor "Dave Beckett"
+        "Nikki Rogers"
+        "Participants in W3C's Semantic Web Deployment Working Group."
+    dct:creator "Alistair Miles"
+        "Sean Bechhofer"
+    rdfs:seeAlso <http://www.w3.org/TR/skos-reference/>
     """
     
     # http://www.w3.org/1999/02/22-rdf-syntax-ns#Property

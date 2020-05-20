@@ -1,13 +1,20 @@
+import datetime
 import re
 import sys
+import textwrap
 from argparse import ArgumentParser
 from keyword import kwlist
-from typing import Dict, List, Union, Optional
+from typing import Dict, List, Union, Optional, Callable, Tuple
 
-from rdflib import Graph, URIRef, Namespace, SKOS, RDFS, RDF, OWL
+import requests
+from rdflib import Graph, URIRef, Namespace, SKOS, RDFS, RDF, OWL, Literal, BNode
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
+from rdflib.term import Node
 
-COMMENT_COL = 24
+COMMENT_COL = 24            # Column for output columns
+
+# Priority given to possible descriptions of individual elements
+# Note: For no good reason we will use english text if it is available
 descriptions = [
     SKOS.definition,
     SKOS.prefLabel,
@@ -15,8 +22,18 @@ descriptions = [
     RDFS.label
 ]
 
+# Indent level -- don't use "\t" in Python as it messes up other edits
 TAB = "    "
 
+
+def strident(s: str) -> str:
+    return s
+
+
+def manual(url: str) -> str:
+    """ Fetch a URL with a turtle header """
+    resp = requests.get(url, headers={"Accept": "text/turtle"})
+    return resp.text
 
 def generate_namespace(namespace: str, uri: Union[str, URIRef, Namespace], rdf_loc: Union[str, URIRef, Namespace],
                        rdf_format: str = "turtle") -> str:
@@ -29,32 +46,85 @@ def generate_namespace(namespace: str, uri: Union[str, URIRef, Namespace], rdf_l
     :return: text for resource
     """
     g = Graph()
-    g.load(rdf_loc, format=rdf_format)
+    # 'manual' format is a hack -- turtle format with accept header
+    if rdf_format == 'manual':
+        g.parse(data=manual(rdf_loc), format="turtle")
+    else:
+        g.load(rdf_loc, format=rdf_format)
+    uri = URIRef(str(uri))
+    g.bind(namespace.lower(), uri)
 
     return f"""from rdflib import URIRef, Namespace
 from definednamespace import DefinedNamespace
 
 
 class {namespace.upper()}(DefinedNamespace):
-    {_hdr(g)}
-    {_body(g, str(uri))}
+    {_hdr(g, uri, rdf_loc)}
+    {_body(g, uri)}
 """
 
 
-def _hdr(g: Graph) -> str:
-    s = g.value(None, RDF.type, OWL.Ontology, any=False)
-    if not s:
-        lines = "No Ontology defined - no documentation available"
+def _hdr(g: Graph, uri: URIRef, url: str) -> str:
+    """
+    Generate a class header for URI
+    :param g: Graph containing entire ontology
+    :param uri: Ontology base to use for entries w/o ontology header
+    :param url: URL that data was loaded from
+    :return: String representation of class docstring
+    """
+    def wrap(s: str) -> str:
+        return ('\n' + TAB).join(textwrap.wrap(s, width=110))
+
+    # See whether we've got an ontology defined
+    ontology_list = list(g.subjects(RDF.type, OWL.Ontology))
+    if not ontology_list:
+        ontology_list = [uri]
+
+    # Copy the information that describes the ontology itself, ignoring anything complex (w/ BNodes)
     g2 = Graph()
     g2.namespace_manager = g.namespace_manager
-    for p, o in g.predicate_objects(s):
-        g2.add((s, p, o))
-    lines = '"""\n'
+
+    # List of lines to emit with corresponding sort order
+    lines: List[Tuple[int, str]] = [(0, '"""'), (1000, '"""')]
+    entry = 0
+    for s in ontology_list:
+        entry += 1
+        order = entry * 10
+        has_title = False
+        has_description = False
+        for p, o in g.predicate_objects(s):
+            if not isinstance(o, BNode) and o != OWL.Ontology:
+                if not has_title and ('title' in str(p) or 'label' in str(p)) and \
+                        isinstance(o, Literal) and (not o.language or o.language == 'en'):
+                    lines.append((order, wrap(str(o.value))))
+                    lines.append((order + 1, ''))
+                    has_title = True
+                elif not has_description and ('description' in str(p) or 'comment' in str(p)) and \
+                        isinstance(o, Literal) and (not o.language or o.language == 'en'):
+                    lines.append((order + 3, wrap(str(o.value))))
+                    lines.append((order + 4, ''))
+                    has_description = True
+                else:
+                    g2.add((s, p, o))
+
+    # Add the information header
+    lines.append((90, f"Generated from: {url}"))
+    lines.append((91, f"Date: {datetime.datetime.now()}\n"))
+
+    # Prettify the class docstring
+    order = 100
     for l in g2.serialize(format="turtle").decode().split('\n'):
-        if l and not "@prefix" in l and "Ontology ;" not in l:
-            lines += re.sub(r'^    ', TAB, l.rstrip()) + "\n"
-    lines += TAB + '"""'
-    return lines
+        if l and '@prefix' not in l:
+            l = re.sub(r';$', '', re.sub(r'.$', '', l))
+            l = l.replace('"""', "'''").replace('\\r', '\n').replace('@en', '').rstrip()
+            if l.startswith(' '):
+                l = re.sub(r'^ {4}', '', l)
+            else:
+                l = re.sub(r'\w+: ', '', l)
+            lines.append((order, wrap(l)))
+            order += 1
+
+    return f"\n{TAB}".join([l[1] for l in sorted(lines)])
 
 
 def _longest_type(s: URIRef, default: URIRef, g: Graph) -> URIRef:
@@ -74,14 +144,25 @@ def _longest_type(s: URIRef, default: URIRef, g: Graph) -> URIRef:
 
 
 def _description_for(node: URIRef, g: Graph) -> str:
+    """
+    Locate the most appropriate description for node in g
+    :param node: Subject to look for a description on
+    :param g: containing graph
+    :return: Resulting description
+    """
+    rval = ""
     for p in descriptions:
-        desc = g.value(node, p)
-        if desc:
-            return str(desc)
-    return ""
+        for desc in g.objects(node, p):
+            if isinstance(desc, Literal) and (not desc.language or desc.language == 'en'):
+                return str(desc)
+            elif not rval:
+                rval = str(desc)
+        if rval:
+            return str(rval)
+    return rval
 
 
-def _body(g: Graph, uri: str) -> str:
+def _body(g: Graph, uri: URIRef) -> str:
     """
     Create the body of a DefinedNamespace from standard RDF
     :param g: Graph
@@ -96,13 +177,14 @@ def _body(g: Graph, uri: str) -> str:
         if str(s).startswith(uri):
             contents.setdefault(_longest_type(s, RDFS.Resource, g), []).append(s)
 
+    uri_str = str(uri)
     extras: List[URIRef] = []
     for k in sorted(contents.keys()):
         vs = contents[k]
-        if len(vs) > 1 and str(vs[0])[len(uri):]:
+        if len(vs) > 1 and str(vs[0])[len(uri_str):]:
             rval += f"\n{TAB}# {k}\n"
             for v in sorted(vs):
-                ident = str(v)[len(uri):]
+                ident = str(v)[len(uri_str):]
                 if ident.isidentifier() and not ident in kwlist:
                     doc = _description_for(v, g).strip().replace('\n', ' ')
                     pad = max(COMMENT_COL - len(ident), 2) * " "

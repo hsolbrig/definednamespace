@@ -4,12 +4,18 @@ from definednamespace import DefinedNamespace
 
 class CSVW(DefinedNamespace):
     """
-    dcterms:date "2017-06-06"^^xsd:date ;
-    dcterms:description "This document describes the RDFS vocabulary description used in the Metadata Vocabulary for Tabular Data [[tabular-metadata]] along with the default JSON-LD Context."@en ;
-    dcterms:title "CSVW Namespace Vocabulary Terms"@en ;
-    rdfs:seeAlso <http://www.w3.org/TR/tabular-metadata> ;
-    owl:imports <http://www.w3.org/ns/prov> ;
-    owl:versionInfo <https://github.com/w3c/csvw/commit/fcc9db20ba4de10e41e964eee1b5d01defa4c664> .
+    CSVW Namespace Vocabulary Terms
+    
+    This document describes the RDFS vocabulary description used in the Metadata Vocabulary for Tabular Data
+    [[tabular-metadata]] along with the default JSON-LD Context.
+    
+    Generated from: http://www.w3.org/ns/csvw
+    Date: 2020-05-20 08:25:36.191659
+
+    dcterms:date "2017-06-06"^^xsd:date
+    rdfs:seeAlso <http://www.w3.org/TR/tabular-metadata>
+    owl:imports <http://www.w3.org/ns/prov>
+    owl:versionInfo <https://github.com/w3c/csvw/commit/fcc9db20ba4de10e41e964eee1b5d01defa4c664>
     """
     
     # http://www.w3.org/1999/02/22-rdf-syntax-ns#Property
@@ -93,7 +99,7 @@ class CSVW(DefinedNamespace):
 
     # http://www.w3.org/2000/01/rdf-schema#Datatype
     JSON: URIRef                    # A literal containing JSON.
-    uriTemplate: URIRef             # uri template
+    uriTemplate: URIRef             # 
 
     # http://www.w3.org/ns/csvw#Direction
     auto: URIRef                    # Indicates whether the tables in the group should be displayed based on the first character in the table that has a specific direction.
