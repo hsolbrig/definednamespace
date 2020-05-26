@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class DCAT(DefinedNamespace):
@@ -14,7 +14,7 @@ class DCAT(DefinedNamespace):
     variance between that normative document and this schema is an error in this schema.
     
     Generated from: https://www.w3.org/ns/dcat2.ttl
-    Date: 2020-05-20 08:25:37.627918
+    Date: 2020-05-26 10:29:13.054010
 
     <http://www.w3.org/ns/dcat> rdfs:label "أنطولوجية فهارس قوائم البيانات"@ar
         "Slovník pro datové katalogy"@cs

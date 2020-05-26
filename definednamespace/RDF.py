@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class RDF(DefinedNamespace):
@@ -9,7 +9,7 @@ class RDF(DefinedNamespace):
     This is the RDF Schema for the RDF vocabulary terms in the RDF Namespace, defined in RDF 1.1 Concepts.
     
     Generated from: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-    Date: 2020-05-20 08:25:41.489226
+    Date: 2020-05-26 10:27:26.717762
 
     dc:date "2019-12-16"
     """

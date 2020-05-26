@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class OWL(DefinedNamespace):
@@ -18,7 +18,7 @@ class OWL(DefinedNamespace):
     an OWL 2 Full ontology and may have other,    unexpected, consequences.
     
     Generated from: http://www.w3.org/2002/07/owl#
-    Date: 2020-05-20 08:25:40.450857
+    Date: 2020-05-26 10:27:24.377631
 
     <http://www.w3.org/2002/07/owl> rdfs:isDefinedBy <http://www.w3.org/TR/owl2-mapping-to-rdf/>
         <http://www.w3.org/TR/owl2-rdf-based-semantics/>

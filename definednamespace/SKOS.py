@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class SKOS(DefinedNamespace):
@@ -11,7 +11,7 @@ class SKOS(DefinedNamespace):
     vocabulary, and also concept schemes embedded in glossaries and terminologies.
     
     Generated from: https://www.w3.org/2009/08/skos-reference/skos.rdf
-    Date: 2020-05-20 08:25:42.875097
+    Date: 2020-05-26 10:24:11.251876
 
     <http://www.w3.org/2004/02/skos/core> dct:contributor "Dave Beckett"
         "Nikki Rogers"

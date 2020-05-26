@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class CSVW(DefinedNamespace):
@@ -10,7 +10,7 @@ class CSVW(DefinedNamespace):
     [[tabular-metadata]] along with the default JSON-LD Context.
     
     Generated from: http://www.w3.org/ns/csvw
-    Date: 2020-05-20 08:25:36.191659
+    Date: 2020-05-26 10:27:17.650272
 
     dcterms:date "2017-06-06"^^xsd:date
     rdfs:seeAlso <http://www.w3.org/TR/tabular-metadata>

@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class FOAF(DefinedNamespace):
@@ -9,7 +9,7 @@ class FOAF(DefinedNamespace):
     The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.
     
     Generated from: http://xmlns.com/foaf/spec/index.rdf
-    Date: 2020-05-20 08:25:39.259048
+    Date: 2020-05-26 10:27:21.619276
 
     """
     

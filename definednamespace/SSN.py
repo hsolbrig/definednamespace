@@ -1,27 +1,26 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class SSN(DefinedNamespace):
     """
     Semantic Sensor Network Ontology
     
-    Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public List public-
-    sdw-wg@w3.org
+    This ontology describes sensors, actuators and observations, and related concepts. It does not describe domain
+    concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports.
     
     Generated from: http://www.w3.org/ns/ssn/
-    Date: 2020-05-20 08:25:43.398912
+    Date: 2020-05-26 10:24:12.392435
 
     a voaf:Vocabulary
     dcterms:created "2017-04-17"^^xsd:date
-    dcterms:description "This ontology describes sensors, actuators and observations, and related concepts. It
-    does not describe domain concepts, time, locations, etc. these are intended to be included from other
-    ontologies via OWL imports."
     dcterms:license <http://www.opengeospatial.org/ogc/Software>
         <http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document>
     dcterms:rights "Copyright 2017 W3C/OGC."
     vann:preferredNamespacePrefix "ssn"
     vann:preferredNamespaceUri "http://www.w3.org/ns/ssn/"
+    rdfs:comment "Please report any errors to the W3C Spatial Data on the Web Working Group via the SDW WG Public
+    List public-sdw-wg@w3.org"
     rdfs:seeAlso <https://www.w3.org/2015/spatial/wiki/Semantic_Sensor_Network_Ontology>
     owl:imports sosa:
     owl:versionInfo '''New modular version of the SSN ontology.

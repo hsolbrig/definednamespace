@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class ODRL2(DefinedNamespace):
@@ -9,7 +9,7 @@ class ODRL2(DefinedNamespace):
     This is the RDF ontology for ODRL Version 2.2.
     
     Generated from: https://www.w3.org/ns/odrl/2/ODRL22.ttl
-    Date: 2020-05-20 08:25:39.850699
+    Date: 2020-05-26 10:29:15.467630
 
     dct:contributor "W3C Permissions & Obligations Expression Working Group"
     dct:creator "Michael Steidl"

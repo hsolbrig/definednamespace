@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class SH(DefinedNamespace):
@@ -9,7 +9,7 @@ class SH(DefinedNamespace):
     This vocabulary defines terms used in SHACL, the W3C Shapes Constraint Language.
     
     Generated from: https://www.w3.org/ns/shacl.ttl
-    Date: 2020-05-20 08:25:42.504049
+    Date: 2020-05-26 10:24:10.621707
 
     sh:suggestedShapesGraph <http://www.w3.org/ns/shacl-shacl#>
     """

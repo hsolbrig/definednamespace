@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class DC(DefinedNamespace):
@@ -7,7 +7,7 @@ class DC(DefinedNamespace):
     Dublin Core Metadata Element Set, Version 1.1
     
     Generated from: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_elements.ttl
-    Date: 2020-05-20 08:25:36.660955
+    Date: 2020-05-26 10:27:18.182689
 
     dcterms:modified "2012-06-14"^^xsd:date
     dcterms:publisher <http://purl.org/dc/aboutdcmi#DCMI>

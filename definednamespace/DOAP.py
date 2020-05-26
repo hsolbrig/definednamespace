@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class DOAP(DefinedNamespace):
@@ -9,7 +9,7 @@ class DOAP(DefinedNamespace):
     The Description of a Project (DOAP) vocabulary, described using W3C RDF Schema and the Web Ontology Language.
     
     Generated from: http://usefulinc.com/ns/doap
-    Date: 2020-05-20 08:25:38.963362
+    Date: 2020-05-26 10:29:14.394437
 
     dc:creator "Edd Wilder-James"
     dc:description "Slovník Description of a Project (DOAP, Popis projektu), popsaný použitím W3C RDF Schema a Web
@@ -45,7 +45,7 @@ class DOAP(DefinedNamespace):
     maintainer: URIRef              # Maintainer of a project, a project leader.
     module: URIRef                  # Module name of a Subversion, CVS, BitKeeper or Arch repository.
     name: URIRef                    # A name of something.
-    os: URIRef                      # Sistema operativo a que o projeto está limitado. Omita esta propriedade se o projeto não é condicionado pelo SO usado.
+    os: URIRef                      # Operating system that a project is limited to.  Omit this property if the project is not OS-specific.
     platform: URIRef                # Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR
     release: URIRef                 # A project release.
     repository: URIRef              # Source code repository.

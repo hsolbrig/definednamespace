@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class VANN(DefinedNamespace):
@@ -9,8 +9,8 @@ class VANN(DefinedNamespace):
     This document describes a vocabulary for annotating descriptions of vocabularies with examples and usage
     notes.
     
-    Generated from: file:///Users/solbrig/Downloads/vann-vocab-20100607.rdf
-    Date: 2020-05-20 08:25:45.390010
+    Generated from: https://vocab.org/vann/vann-vocab-20100607.rdf
+    Date: 2020-05-26 10:30:27.736368
 
     dc:creator <http://iandavis.com/id/me>
     dc:date "2010-06-07"

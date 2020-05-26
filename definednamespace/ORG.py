@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class ORG(DefinedNamespace):
@@ -10,10 +10,9 @@ class ORG(DefinedNamespace):
     organization.
     
     Generated from: http://www.w3.org/ns/org#
-    Date: 2020-05-20 08:25:40.204229
+    Date: 2020-05-26 10:29:15.979273
 
-    rdfs:label "Core organization ontology"
-        "Ontología de organizaciones"@es
+    rdfs:label "Ontología de organizaciones"@es
         "Ontologie des organisations"@fr
         "Ontologia delle organizzazioni"@it
     dct:created "2010-05-28"^^xsd:date
@@ -28,7 +27,8 @@ class ORG(DefinedNamespace):
         "2014-01-25"^^xsd:date
         "2014-02-05"^^xsd:date
         "2014-04-12"^^xsd:date
-    dct:title "Ontología de organizaciones"@es
+    dct:title "Core organization ontology"
+        "Ontología de organizaciones"@es
         "Ontologie des organisations"@fr
         "Ontologia delle organizzazioni"@it
     rdfs:comment "Vocabulario para describir organizaciones, adaptable a una amplia variedad de ellas."@es

@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class TIME(DefinedNamespace):
@@ -7,7 +7,7 @@ class TIME(DefinedNamespace):
     OWL-Time
     
     Generated from: http://www.w3.org/2006/time#
-    Date: 2020-05-20 08:25:43.885965
+    Date: 2020-05-26 10:24:13.287749
 
     <http://www.w3.org/2006/time> rdfs:label "Tiempo en OWL"@es
     dct:contributor <https://orcid.org/0000-0001-8269-8171>

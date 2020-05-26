@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class PROF(DefinedNamespace):
@@ -16,7 +16,7 @@ class PROF(DefinedNamespace):
     provided alongside this vocabulary but that list is extensible.
     
     Generated from: https://www.w3.org/ns/dx/prof/profilesont.ttl
-    Date: 2020-05-20 08:25:40.833613
+    Date: 2020-05-26 10:27:24.641336
 
     <http://www.w3.org/ns/dx/prof> dc:contributor "Alejandra Gonzalez-Beltran"
         "Nicholas Car"

@@ -1,5 +1,5 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class DCMITYPE(DefinedNamespace):
@@ -7,7 +7,7 @@ class DCMITYPE(DefinedNamespace):
     DCMI Type Vocabulary
     
     Generated from: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_type.ttl
-    Date: 2020-05-20 08:25:37.040494
+    Date: 2020-05-26 10:27:18.569272
 
     dcterms:modified "2012-06-14"^^xsd:date
     dcterms:publisher <http://purl.org/dc/aboutdcmi#DCMI>

@@ -1,11 +1,11 @@
-from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
+from rdflib.term import URIRef
+from rdflib.tools.namespace import DefinedNamespace, Namespace
 
 
 class SDO(DefinedNamespace):
     """
     Generated from: http://schema.org/version/latest/schema.ttl
-    Date: 2020-05-20 10:59:57.794079
+    Date: 2020-05-26 10:24:09.640827
 
     """
     
