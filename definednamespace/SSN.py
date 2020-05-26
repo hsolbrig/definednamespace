@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class SSN(DefinedNamespace):
@@ -10,7 +10,7 @@ class SSN(DefinedNamespace):
     concepts, time, locations, etc. these are intended to be included from other ontologies via OWL imports.
     
     Generated from: http://www.w3.org/ns/ssn/
-    Date: 2020-05-26 10:24:12.392435
+    Date: 2020-05-26 14:20:09.068204
 
     a voaf:Vocabulary
     dcterms:created "2017-04-17"^^xsd:date
@@ -41,6 +41,9 @@ class SSN(DefinedNamespace):
     Property: URIRef                # A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity.
     Stimulus: URIRef                # An event in the real world that 'triggers' the Sensor. The properties associated to the Stimulus may be different to the eventual observed ObservableProperty. It is the event, not the object, that triggers the Sensor.
     System: URIRef                  # System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems.
+
+    # http://www.w3.org/2002/07/owl#FunctionalProperty
+    wasOriginatedBy: URIRef         # Relation between an Observation and the Stimulus that originated it.
 
     # http://www.w3.org/2002/07/owl#ObjectProperty
     deployedOnPlatform: URIRef      # Relation between a Deployment and the Platform on which the Systems are deployed.

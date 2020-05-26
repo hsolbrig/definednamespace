@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class SH(DefinedNamespace):
@@ -9,7 +9,7 @@ class SH(DefinedNamespace):
     This vocabulary defines terms used in SHACL, the W3C Shapes Constraint Language.
     
     Generated from: https://www.w3.org/ns/shacl.ttl
-    Date: 2020-05-26 10:24:10.621707
+    Date: 2020-05-26 14:20:08.041103
 
     sh:suggestedShapesGraph <http://www.w3.org/ns/shacl-shacl#>
     """
@@ -153,6 +153,9 @@ class SH(DefinedNamespace):
     ValidationReport: URIRef        # The class of SHACL validation reports.
     ValidationResult: URIRef        # The class of validation results.
     Validator: URIRef               # The class of validators, which provide instructions on how to process a constraint definition. This class serves as base class for the SPARQL-based validators and other possible implementations.
+
+    # http://www.w3.org/2000/01/rdf-schema#Resource
+    this: URIRef                    # A node expression that represents the current focus node.
 
     # http://www.w3.org/ns/shacl#ConstraintComponent
     AndConstraintComponent: URIRef  # A constraint component that can be used to test whether a value node conforms to all members of a provided list of shapes.

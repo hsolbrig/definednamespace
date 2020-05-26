@@ -1,11 +1,11 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class SDO(DefinedNamespace):
     """
     Generated from: http://schema.org/version/latest/schema.ttl
-    Date: 2020-05-26 10:24:09.640827
+    Date: 2020-05-26 14:20:07.348101
 
     """
     
@@ -14,6 +14,9 @@ class SDO(DefinedNamespace):
     CompletedActionStatus: URIRef   # An action that has already taken place.
     FailedActionStatus: URIRef      # An action that failed to complete. The action's error property and the HTTP return code contain more information about the failure.
     PotentialActionStatus: URIRef   # A description of an action that is supported.
+
+    # http://schema.org/Audience
+    Researcher: URIRef              # Researchers.
 
     # http://schema.org/BoardingPolicyType
     GroupBoardingPolicy: URIRef     # The airline boards by groups based on check-in time, priority, etc.
@@ -40,6 +43,9 @@ class SDO(DefinedNamespace):
     Thursday: URIRef                # The day of the week between Wednesday and Friday.
     Tuesday: URIRef                 # The day of the week between Monday and Wednesday.
     Wednesday: URIRef               # The day of the week between Tuesday and Thursday.
+
+    # http://schema.org/DeliveryMethod
+    OnSitePickup: URIRef            # A DeliveryMethod in which an item is collected on site, e.g. in a store or at a box office.
 
     # http://schema.org/DigitalDocumentPermissionType
     CommentPermission: URIRef       # Permission to add comments to the document.

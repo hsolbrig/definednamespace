@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class DOAP(DefinedNamespace):
@@ -9,7 +9,7 @@ class DOAP(DefinedNamespace):
     The Description of a Project (DOAP) vocabulary, described using W3C RDF Schema and the Web Ontology Language.
     
     Generated from: http://usefulinc.com/ns/doap
-    Date: 2020-05-26 10:29:14.394437
+    Date: 2020-05-26 14:20:01.307972
 
     dc:creator "Edd Wilder-James"
     dc:description "Slovník Description of a Project (DOAP, Popis projektu), popsaný použitím W3C RDF Schema a Web

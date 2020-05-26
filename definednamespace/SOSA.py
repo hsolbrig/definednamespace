@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class SOSA(DefinedNamespace):
@@ -10,7 +10,7 @@ class SOSA(DefinedNamespace):
     together with considerations from the W3C/OGC Spatial Data on the Web Working Group.
     
     Generated from: http://www.w3.org/ns/sosa/
-    Date: 2020-05-26 10:24:11.800324
+    Date: 2020-05-26 14:20:08.792504
 
     a voaf:Vocabulary
     dcterms:created "2017-04-17"^^xsd:date

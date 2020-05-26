@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class DCAT(DefinedNamespace):
@@ -14,7 +14,7 @@ class DCAT(DefinedNamespace):
     variance between that normative document and this schema is an error in this schema.
     
     Generated from: https://www.w3.org/ns/dcat2.ttl
-    Date: 2020-05-26 10:29:13.054010
+    Date: 2020-05-26 14:19:59.985854
 
     <http://www.w3.org/ns/dcat> rdfs:label "أنطولوجية فهارس قوائم البيانات"@ar
         "Slovník pro datové katalogy"@cs
@@ -113,7 +113,7 @@ class DCAT(DefinedNamespace):
     Role: URIRef                    # A role is the function of a resource or agent with respect to another resource, in the context of resource attribution or resource relationships.
 
     # http://www.w3.org/2002/07/owl#DatatypeProperty
-    spatialResolutionInMeters: URIRef  # minimum spatial separation resolvable in a dataset, measured in meters.
+    spatialResolutionInMeters: URIRef  # mínima separacíon espacial disponible en un conjunto de datos, medida en metros.
     temporalResolution: URIRef      # minimum time period resolvable in a dataset.
 
     # http://www.w3.org/2002/07/owl#ObjectProperty

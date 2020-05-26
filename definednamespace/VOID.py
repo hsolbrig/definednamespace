@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class VOID(DefinedNamespace):
@@ -13,7 +13,7 @@ class VOID(DefinedNamespace):
     VoID, <em><a href="http://www.w3.org/TR/void/">Describing Linked Datasets with the VoID Vocabulary</a></em>.
     
     Generated from: http://rdfs.org/ns/void#
-    Date: 2020-05-26 10:24:15.803553
+    Date: 2020-05-26 14:20:11.911298
 
     <http://vocab.deri.ie/void> a adms:SemanticAsset
     dc:creator <http://vocab.deri.ie/void#Michael%20Hausenblas>

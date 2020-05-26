@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class DCTERMS(DefinedNamespace):
@@ -7,7 +7,7 @@ class DCTERMS(DefinedNamespace):
     DCMI Metadata Terms - other
     
     Generated from: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl
-    Date: 2020-05-26 10:27:20.330970
+    Date: 2020-05-26 14:20:00.590514
 
     dcterms:modified "2012-06-14"^^xsd:date
     dcterms:publisher <http://purl.org/dc/aboutdcmi#DCMI>

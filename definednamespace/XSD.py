@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class XSD(DefinedNamespace):
@@ -7,7 +7,7 @@ class XSD(DefinedNamespace):
     W3C XML Schema Definition Language (XSD) 1.1 Part 2: Datatypes
     
     Generated from: ../schemas/datatypes.xsd
-    Date: 2020-05-26 10:30:27.016754
+    Date: 2020-05-26 14:21:14.993677
     
     The schema corresponding to this document is normative,
       with respect to the syntactic constraints it expresses in the

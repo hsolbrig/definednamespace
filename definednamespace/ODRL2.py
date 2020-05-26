@@ -1,25 +1,25 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class ODRL2(DefinedNamespace):
     """
     ODRL Version 2.2
     
-    This is the RDF ontology for ODRL Version 2.2.
+    The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism
+    (the expression) for permissions and obligations statements describing digital content usage based on the ODRL
+    Information Model.
     
     Generated from: https://www.w3.org/ns/odrl/2/ODRL22.ttl
-    Date: 2020-05-26 10:29:15.467630
+    Date: 2020-05-26 14:20:02.352356
 
     dct:contributor "W3C Permissions & Obligations Expression Working Group"
     dct:creator "Michael Steidl"
         "Renato Iannella"
         "Stuart Myles"
         "Víctor Rodríguez-Doncel"
-    dct:description "The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and
-    encoding mechanism (the expression) for permissions and obligations statements describing digital content
-    usage based on the ODRL Information Model."
     dct:license <https://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231#Copyright/>
+    rdfs:comment "This is the RDF ontology for ODRL Version 2.2."
     owl:versionInfo "2.2"
     """
     

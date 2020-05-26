@@ -27,7 +27,7 @@ class DefinedNamespaceMeta(type):
     _extras: List[str] = []
 
     def __getitem__(cls, name, default=None):
-        if name.startswith("__"):
+        if str(name).startswith("__"):
             return super().__getitem__(name, default)
         if cls._warn:
             if name not in cls.__annotations__ and name not in cls._extras:

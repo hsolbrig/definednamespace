@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class TIME(DefinedNamespace):
@@ -7,7 +7,7 @@ class TIME(DefinedNamespace):
     OWL-Time
     
     Generated from: http://www.w3.org/2006/time#
-    Date: 2020-05-26 10:24:13.287749
+    Date: 2020-05-26 14:20:10.531265
 
     <http://www.w3.org/2006/time> rdfs:label "Tiempo en OWL"@es
     dct:contributor <https://orcid.org/0000-0001-8269-8171>
@@ -94,6 +94,9 @@ class TIME(DefinedNamespace):
     inXSDDateTime: URIRef           # Position of an instant, expressed using xsd:dateTime
     xsdDateTime: URIRef             # Value of DateTimeInterval expressed as a compact value.
 
+    # http://www.w3.org/2002/07/owl#FunctionalProperty
+    hasTRS: URIRef                  # The temporal reference system used by a temporal position or extent description.
+
     # http://www.w3.org/2002/07/owl#ObjectProperty
     after: URIRef                   # Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.
     dayOfWeek: URIRef               # The day of week, whose value is a member of the class time:DayOfWeek
@@ -127,6 +130,9 @@ class TIME(DefinedNamespace):
     timeZone: URIRef                # The time zone for clock elements in the temporal position
     unitType: URIRef                # The temporal unit which provides the precision of a date-time value or scale of a temporal extent
 
+    # http://www.w3.org/2002/07/owl#TransitiveProperty
+    before: URIRef                  # Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, "before" can be considered to be basic to instants and derived for intervals.
+
     # http://www.w3.org/2006/time#DayOfWeek
     Friday: URIRef                  # Friday
     Monday: URIRef                  # Monday
@@ -138,7 +144,7 @@ class TIME(DefinedNamespace):
 
     # http://www.w3.org/2006/time#TemporalUnit
     unitDay: URIRef                 # day
-    unitHour: URIRef                # один час"@ru
+    unitHour: URIRef                # hour
     unitMinute: URIRef              # minute
     unitMonth: URIRef               # month
     unitSecond: URIRef              # second

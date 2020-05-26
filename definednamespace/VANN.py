@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class VANN(DefinedNamespace):
@@ -10,7 +10,7 @@ class VANN(DefinedNamespace):
     notes.
     
     Generated from: https://vocab.org/vann/vann-vocab-20100607.rdf
-    Date: 2020-05-26 10:30:27.736368
+    Date: 2020-05-26 14:21:15.580430
 
     dc:creator <http://iandavis.com/id/me>
     dc:date "2010-06-07"

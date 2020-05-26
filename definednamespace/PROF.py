@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class PROF(DefinedNamespace):
@@ -16,7 +16,7 @@ class PROF(DefinedNamespace):
     provided alongside this vocabulary but that list is extensible.
     
     Generated from: https://www.w3.org/ns/dx/prof/profilesont.ttl
-    Date: 2020-05-26 10:27:24.641336
+    Date: 2020-05-26 14:20:03.542924
 
     <http://www.w3.org/ns/dx/prof> dc:contributor "Alejandra Gonzalez-Beltran"
         "Nicholas Car"
@@ -34,6 +34,9 @@ class PROF(DefinedNamespace):
     Profile: URIRef                 # A named set of constraints on one or more identified base specifications or other profiles, including the identification of any implementing subclasses of datatypes, semantic interpretations, vocabularies, options and parameters of those base specifications necessary to accomplish a particular function.  This definition includes what are often called "application profiles", "metadata application profiles", or "metadata profiles".
     ResourceDescriptor: URIRef      # A resource that defines an aspect - a particular part or feature - of a Profile
     ResourceRole: URIRef            # The role that an Resource plays
+
+    # http://www.w3.org/2002/07/owl#DatatypeProperty
+    hasToken: URIRef                # A preferred alternative identifier for the Profile
 
     # http://www.w3.org/2002/07/owl#ObjectProperty
     hasArtifact: URIRef             # The URL of a downloadable file with particulars such as its format and role indicated by a Resource Descriptor

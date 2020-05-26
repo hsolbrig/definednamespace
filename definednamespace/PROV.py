@@ -1,9 +1,30 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class PROV(DefinedNamespace):
     """
+    W3C PROVenance Interchange Ontology (PROV-O)
+    
+    This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page).   If
+    you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe
+    public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All
+    feedback is welcome.
+    
+    PROV Access and Query Ontology
+    
+    This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page).   If
+    you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe
+    public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All
+    feedback is welcome.
+    
+    Dublin Core extensions of the W3C PROVenance Interchange Ontology (PROV-O)
+    
+    This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page).   If
+    you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe
+    public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All
+    feedback is welcome.
+    
     W3C PROV Linking Across Provenance Bundles Ontology (PROV-LINKS)
     
     This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page). If
@@ -25,26 +46,8 @@ class PROV(DefinedNamespace):
     public-prov-comments-request@w3.org, archives http://lists.w3.org/ Archives/Public/public-prov-comments/). All
     feedback is welcome.
     
-    PROV Access and Query Ontology
-    
-    0.2
-    
-    Dublin Core extensions of the W3C PROVenance Interchange Ontology (PROV-O)
-    
-    This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page).   If
-    you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe
-    public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All
-    feedback is welcome.
-    
-    W3C PROVenance Interchange Ontology (PROV-O)
-    
-    This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page).   If
-    you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe
-    public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All
-    feedback is welcome.
-    
     Generated from: http://www.w3.org/ns/prov
-    Date: 2020-05-26 10:29:17.197402
+    Date: 2020-05-26 14:20:04.650279
 
     <file:///Users/solbrig/git/hsolbrig/definednamespace/tests/#> rdfs:seeAlso
     <http://www.w3.org/TR/prov-o/#names-of-inverse-properties>
@@ -69,11 +72,7 @@ class PROV(DefinedNamespace):
         <http://www.w3.org/ns/prov-o#>
         <http://www.w3.org/ns/prov-o-inverses#>
     prov:wasRevisionOf <http://www.w3.org/ns/prov-20130312>
-    <http://www.w3.org/ns/prov-aq#> rdfs:comment '''This document is published by the Provenance Working Group
-    (http://www.w3.org/2011/prov/wiki/Main_Page).
-    If you wish to make comments regarding this document, please send them to public-prov-comments@w3.org
-    (subscribe public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-
-    comments/). All feedback is welcome.'''
+    <http://www.w3.org/ns/prov-aq#> rdfs:comment "0.2"^^xsd:string
     rdfs:seeAlso <http://www.w3.org/TR/prov-aq/>
         prov:
     owl:versionIRI <http://www.w3.org/TR/2013/NOTE-prov-aq-20130430/>
@@ -143,7 +142,7 @@ class PROV(DefinedNamespace):
     editorialNote: URIRef           # A note by the OWL development team about how this term expresses the PROV-DM concept, or how it should be used in context of semantic web or linked data.
     editorsDefinition: URIRef       # When the prov-o term does not have a definition drawn from prov-dm, and the prov-o editor provides one.
     inverse: URIRef                 # PROV-O does not define all property inverses. The directionalities defined in PROV-O should be given preference over those not defined. However, if users wish to name the inverse of a PROV-O property, the local name given by prov:inverse should be used.
-    n: URIRef                       # A reference to the principal section of the PROV-DM document that describes this concept.
+    n: URIRef                       # A reference to the principal section of the PROV-M document that describes this concept.
     order: URIRef                   # The position that this OWL term should be listed within documentation. The scope of the documentation (e.g., among all terms, among terms within a prov:category, among properties applying to a particular class, etc.) is unspecified.
     qualifiedForm: URIRef           # This annotation property links a subproperty of prov:wasInfluencedBy with the subclass of prov:Influence and the qualifying property that are used to qualify it.   Example annotation:      prov:wasGeneratedBy prov:qualifiedForm prov:qualifiedGeneration, prov:Generation .  Then this unqualified assertion:      :entity1 prov:wasGeneratedBy :activity1 .  can be qualified by adding:     :entity1 prov:qualifiedGeneration :entity1Gen .    :entity1Gen         a prov:Generation, prov:Influence;        prov:activity :activity1;        :customValue 1337 .  Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1) is mirrored as the value of the prov:activity (or prov:entity, or prov:agent) property on the influence class.
     sharesDefinitionWith: URIRef    # 
@@ -170,7 +169,7 @@ class PROV(DefinedNamespace):
     Creator: URIRef                 # Creator
     Delegation: URIRef              # An instance of prov:Delegation provides additional descriptions about the binary prov:actedOnBehalfOf relation from a performing prov:Agent to some prov:Agent for whom it was performed. For example, :mixing prov:wasAssociatedWith :toddler . :toddler prov:actedOnBehalfOf :mother; prov:qualifiedDelegation [ a prov:Delegation; prov:entity :mother; :foo :bar ].
     Derivation: URIRef              # The more specific forms of prov:Derivation (i.e., prov:Revision, prov:Quotation, prov:PrimarySource) should be asserted if they apply.
-    Dictionary: URIRef              # A given dictionary forms a given structure for its members. A different structure (obtained either by insertion or removal of members) constitutes a different dictionary.
+    Dictionary: URIRef              # This concept allows for the provenance of the dictionary, but also of its constituents to be expressed. Such a notion of dictionary corresponds to a wide variety of concrete data structures, such as a maps or associative arrays.
     DirectQueryService: URIRef      # Type for a generic provenance query service. Mainly for use in RDF provenance query service descriptions, to facilitate discovery in linked data environments.
     EmptyDictionary: URIRef         # Empty Dictionary
     End: URIRef                     # An instance of prov:End provides additional descriptions about the binary prov:wasEndedBy relation from some ended prov:Activity to an prov:Entity that ended it. For example, :ball_game prov:wasEndedBy :buzzer; prov:qualifiedEnd [ a prov:End; prov:entity :buzzer; :foo :bar; prov:atTime '2012-03-09T08:05:08-05:00'^^xsd:dateTime ].
@@ -217,6 +216,9 @@ class PROV(DefinedNamespace):
     pairEntity: URIRef              # pairKey
     pairKey: URIRef                 # pairKey
 
+    # http://www.w3.org/2002/07/owl#NamedIndividual
+    EmptyCollection: URIRef         # EmptyCollection
+
     # http://www.w3.org/2002/07/owl#ObjectProperty
     actedOnBehalfOf: URIRef         # An object property to express the accountability of an agent towards another agent. The subordinate agent acted on behalf of the responsible agent in an actual activity.
     activity: URIRef                # activity
@@ -230,13 +232,13 @@ class PROV(DefinedNamespace):
     dictionary: URIRef              # dictionary
     entity: URIRef                  # entity
     generated: URIRef               # generated
-    hadActivity: URIRef             # This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href="#owl-profile">PROV-O OWL Profile</a>.
+    hadActivity: URIRef             # The _optional_ Activity of an Influence, which used, generated, invalidated, or was the responsibility of some Entity. This property is _not_ used by ActivityInfluence (use prov:activity instead).
     hadDictionaryMember: URIRef     # hadDictionaryMember
     hadGeneration: URIRef           # The _optional_ Generation involved in an Entity's Derivation.
     hadMember: URIRef               # hadMember
     hadPlan: URIRef                 # The _optional_ Plan adopted by an Agent in Association with some Activity. Plan specifications are out of the scope of this specification.
     hadPrimarySource: URIRef        # hadPrimarySource
-    hadRole: URIRef                 # The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ].
+    hadRole: URIRef                 # This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href="#owl-profile">PROV-O OWL Profile</a>.
     hadUsage: URIRef                # The _optional_ Usage involved in an Entity's Derivation.
     has_anchor: URIRef              # Indicates anchor URI for a potentially dynamic resource instance.
     has_provenance: URIRef          # Indicates a provenance-URI for a resource; the resource identified by this property presents a provenance record about its subject or anchor resource.
@@ -269,7 +271,7 @@ class PROV(DefinedNamespace):
     wasDerivedFrom: URIRef          # The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable.
     wasEndedBy: URIRef              # End is when an activity is deemed to have ended. An end may refer to an entity, known as trigger, that terminated the activity.
     wasGeneratedBy: URIRef          # wasGeneratedBy
-    wasInfluencedBy: URIRef         # Because prov:wasInfluencedBy is a broad relation, its more specific subproperties (e.g. prov:wasInformedBy, prov:actedOnBehalfOf, prov:wasEndedBy, etc.) should be used when applicable.
+    wasInfluencedBy: URIRef         # This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href="#owl-profile">PROV-O OWL Profile</a>.
     wasInformedBy: URIRef           # An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2.
     wasInvalidatedBy: URIRef        # wasInvalidatedBy
     wasQuotedFrom: URIRef           # An entity is derived from an original entity by copying, or 'quoting', some or all of it.

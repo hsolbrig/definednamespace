@@ -1,5 +1,5 @@
 from rdflib.term import URIRef
-from rdflib.tools.namespace import DefinedNamespace, Namespace
+from rdflib.namespace import DefinedNamespace, Namespace
 
 
 class ORG(DefinedNamespace):
@@ -10,7 +10,7 @@ class ORG(DefinedNamespace):
     organization.
     
     Generated from: http://www.w3.org/ns/org#
-    Date: 2020-05-26 10:29:15.979273
+    Date: 2020-05-26 14:20:02.908408
 
     rdfs:label "Ontología de organizaciones"@es
         "Ontologie des organisations"@fr
@@ -85,5 +85,8 @@ class ORG(DefinedNamespace):
     Post: URIRef                    # A Post represents some position within an organization that exists independently of the person or persons filling it. Posts may be used to represent situations where a person is a member of an organization ex officio (for example the Secretary of State for Scotland is part of UK Cabinet by virtue of being Secretary of State for Scotland, not as an individual person). A post can be held by multiple people and hence can be treated as a organization in its own right.
     Role: URIRef                    # Denotes a role that a Person or other Agent can take in an organization. Instances of this class describe the abstract role; to denote a specific instance of a person playing that role in a specific organization use an instance of `org:Membership`. It is common for roles to be arranged in some taxonomic structure and we use SKOS to represent that. The normal SKOS lexical properties should be used when labelling the Role. Additional descriptive properties for the Role, such as a Salary band, may be added by extension vocabularies.
     Site: URIRef                    # An office or other premise at which the organization is located. Many organizations are spread across multiple sites and many sites will host multiple locations. In most cases a Site will be a physical location. However, we don't exclude the possibility of non-physical sites such as a virtual office with an associated post box and phone reception service. Extensions may provide subclasses to denote particular types of site.
+
+    # http://www.w3.org/ns/org#Role
+    Head: URIRef                    # head
 
     _NS = Namespace("http://www.w3.org/ns/org#")
