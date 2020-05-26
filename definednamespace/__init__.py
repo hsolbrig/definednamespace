@@ -30,7 +30,7 @@ class DefinedNamespaceMeta(type):
         if cls._warn:
             if name not in cls.__annotations__ and name not in cls._extras:
                 warnings.warn(f"Code: {name} is not defined in namespace {cls.__name__}", stacklevel=3)
-        return cls._NS[name]
+        return cls._NS[str(name) if isinstance(name, int) else name]
 
     def __getattr__(cls, name):
         return cls.__getitem__(name)
