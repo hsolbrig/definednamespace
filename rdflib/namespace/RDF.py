@@ -1,4 +1,4 @@
-from rdflib.term import URIRef
+from rdflib import URIRef
 from rdflib.namespace import DefinedNamespace, Namespace
 
 

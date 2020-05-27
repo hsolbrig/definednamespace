@@ -16,7 +16,7 @@ def _parser_exit(_: argparse.ArgumentParser,  __=0, message: Optional[str]=None)
 
 
 help_text = """usage: generate_namespace [-h]
-                          [-f {n3,nquads,nt,nt11,ntriples,trig,trix,ttl,turtle,xml}]
+                          [-f {json-ld,n3,nquads,nt,nt11,ntriples,trig,trix,ttl,turtle,xml}]
                           prefix uri rdf_file
 
 Generate a DefinedNamespace
@@ -29,7 +29,7 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -f {n3,nquads,nt,nt11,ntriples,trig,trix,ttl,turtle,xml}, --format {n3,nquads,nt,nt11,ntriples,trig,trix,ttl,turtle,xml}
+  -f {json-ld,n3,nquads,nt,nt11,ntriples,trig,trix,ttl,turtle,xml}, --format {json-ld,n3,nquads,nt,nt11,ntriples,trig,trix,ttl,turtle,xml}
                         RDF file format"""
 
 
@@ -46,6 +46,9 @@ class CommandLineTestCase(unittest.TestCase):
                 ...
         argparse.ArgumentParser.exit = old_exit
         self.assertEqual(help_text, msg.getvalue().strip())
+
+    def test_rdf(self):
+        pass
 
 
 if __name__ == '__main__':

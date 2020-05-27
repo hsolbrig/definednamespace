@@ -4,12 +4,13 @@ import sys
 import textwrap
 from argparse import ArgumentParser
 from keyword import kwlist
-from typing import Dict, List, Union, Optional, Callable, Tuple
+from typing import Dict, List, Union, Optional, Tuple
 
 import requests
 from rdflib import Graph, URIRef, Namespace, SKOS, RDFS, RDF, OWL, Literal, BNode
 from rdflib.plugin import plugins as rdflib_plugins, Parser as rdflib_Parser
-from rdflib.term import Node
+
+from template import fill_template
 
 COMMENT_COL = 24            # Column for output columns
 
@@ -54,14 +55,7 @@ def generate_namespace(namespace: str, uri: Union[str, URIRef, Namespace], rdf_l
     uri = URIRef(str(uri))
     g.bind(namespace.lower(), uri)
 
-    return f"""from rdflib import URIRef, Namespace
-from definednamespace import DefinedNamespace
-
-
-class {namespace.upper()}(DefinedNamespace):
-    {_hdr(g, uri, rdf_loc)}
-    {_body(g, uri)}
-"""
+    return fill_template(namespace, _hdr(g, uri, rdf_loc), _body(g, uri))
 
 
 def _hdr(g: Graph, uri: URIRef, url: str) -> str:
@@ -181,7 +175,7 @@ def _body(g: Graph, uri: URIRef) -> str:
     extras: List[URIRef] = []
     for k in sorted(contents.keys()):
         vs = contents[k]
-        if len(vs) > 1 and str(vs[0])[len(uri_str):]:
+        if len(vs) and str(vs[0])[len(uri_str):]:
             rval += f"\n{TAB}# {k}\n"
             for v in sorted(vs):
                 ident = str(v)[len(uri_str):]

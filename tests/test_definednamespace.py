@@ -19,6 +19,7 @@ class DefinedNamespaceUnitTest(unittest.TestCase):
         with redirect_stderr(txt):
             self.assertEqual(SKOS.foo, URIRef("http://www.w3.org/2004/02/skos/core#foo"))
         self.assertTrue('UserWarning: Code: foo is not defined in namespace SKOS' in txt.getvalue())
+        self.assertEqual(RDFMOD[1], URIRef('http://www.w3.org/2000/01/rdf-schema#1'))
 
     def test_extras(self):
         """

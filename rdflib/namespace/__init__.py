@@ -24,6 +24,7 @@ class DefinedNamespaceMeta(type):
 
     _NS: Namespace
     _warn: bool = True
+    _fail: bool = False             # True means act like ClosedNamespace
     _extras: List[str] = []
 
     def __getitem__(cls, name, default=None):

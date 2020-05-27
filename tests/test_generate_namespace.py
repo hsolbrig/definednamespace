@@ -5,7 +5,7 @@ from typing import Union
 
 from rdflib import RDF, Namespace, SKOS, RDFS
 
-from generator.generate_namespace import generate_namespace
+from generators.generate_namespace import generate_namespace
 from tests import test_dir
 
 

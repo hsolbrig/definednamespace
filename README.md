@@ -8,3 +8,4 @@ The definitions in the classes allow IDE's to do search and substitution.
 
 See: [tests/data/RDF.py]() , [tests/data/SKOS.py]() and [tests/data/RDFMOD.py]() for examples. 
 
+Notes:
